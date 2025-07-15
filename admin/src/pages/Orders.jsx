@@ -17,7 +17,7 @@ const Orders = ({ token }) => {
         {},
         { headers: { token } }
       );
-      // console.log(response.data);
+      console.log(response.data.orders);
       if (response.data.success) {
         setOrders(response.data.orders.reverse());
       } else {
@@ -50,7 +50,12 @@ const Orders = ({ token }) => {
         {
           orders.map((order,index)=>(
             <div className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-200 p-5 md:p-8 my-3 md:my-4 text-xs sm:text-sm text-gray-700" key={index}>
-              <img className="w-12" src={assets.parcel_icon} alt="" />
+              {/* <img className="w-12" src={assets.parcel_icon} alt="" /> */}
+              {
+                order.items.map((item,idx)=>(
+                  <img key={idx} src={item.image[0]} alt="" />
+                ))
+              }
              <div>
                <div>
                 {order.items.map((item,index)=>{
@@ -82,6 +87,9 @@ const Orders = ({ token }) => {
               <option value="Shipped">Shipped</option>
               <option value="Out for delivery">Out for delivery</option>
               <option value="Delivered">Delivered</option>
+              <option value="Exchanged">Exchanged</option>
+              <option value="Returned">Returned</option>
+
             </select>
              </div>
           ))
