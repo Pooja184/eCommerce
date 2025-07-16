@@ -111,5 +111,26 @@ const adminLogin =async(req,res)=>{
     }
 }
 
+//get user details
+const getUserProfile=async(req,res)=>{
+    try {
+        // console.log(req);
+        const user=await userModel.findById(req.userId).select('-password');
+        console.log(user)
 
-export {loginUser,registerUser,adminLogin}
+        if (!user) {
+            res.json({success:false,message:"User Not Found"})
+        }
+        res.json({success:true,user})
+        
+    } catch (error) {
+        console.log(error);
+        res.json({success:false,message:error.message})
+    }
+}
+
+
+export {loginUser,registerUser,adminLogin,getUserProfile}
+
+//  "email":"pooja1@gmail.com",
+//     "password":"123459463"
