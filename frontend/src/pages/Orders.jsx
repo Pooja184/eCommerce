@@ -8,7 +8,6 @@ const Orders = () => {
   // const {products,currency}=useContext(shopContext);
   const { backendUrl, token, currency, navigate } = useContext(ShopContext);
 
-
   const [orderData, setOrderData] = useState([]);
 
   const loadOrderData = async () => {
@@ -21,7 +20,7 @@ const Orders = () => {
         {},
         { headers: { token } }
       );
-      // console.log(response, "response");
+      console.log(response, "response");
 
       if (response.data.success) {
         let allOrdersItem = [];
@@ -44,7 +43,6 @@ const Orders = () => {
         setOrderData(allOrdersItem.reverse());
 
         // Fetch Exchange Requests
-        
       }
     } catch (error) {
       console.log(error);
@@ -58,7 +56,6 @@ const Orders = () => {
 
   // console.log(orderData,"Order data");
 
-  
   return (
     <div className="border-t pt-16 ">
       <div className="text-2xl ">
@@ -101,20 +98,25 @@ const Orders = () => {
                   <p className="min-w-2 h-2 rounded-full bg-green-500 "></p>
                   <p className="text-sm md:text-base ">{item.status}</p>
                 </div>
-                
-                  <button
-                    onClick={() => navigate("/exchange", { state: { item } })}
-                    className="border mr-2 px-4 py-2 text-sm font-medium rounded-sm"
-                  >
-                    Exchange
-                  </button>
-               
-                <button
-                  onClick={() => navigate("/exchange")}
-                  className="border mr-2 px-4 py-2 text-sm font-medium rounded-sm"
-                >
-                  Return
-                </button>
+                {/*  Show "Exchange" and "Return" buttons only if the user has NOT
+                already requested , if you don't get this logic check backend logic for userOrder in order controller
+                 */}
+                {!(item.exchangeRequested || item.returnRequested) && (
+                  <>
+                    <button
+                      onClick={() => navigate("/exchange", { state: { item } })}
+                      className="border mr-2 px-4 py-2 text-sm font-medium rounded-sm"
+                    >
+                      Exchange
+                    </button>
+                    <button
+                      onClick={() => navigate("/return", { state: { item } })}
+                      className="border mr-2 px-4 py-2 text-sm font-medium rounded-sm"
+                    >
+                      Return
+                    </button>
+                  </>
+                )}
                 <button
                   onClick={loadOrderData}
                   className="border px-4 py-2 text-sm font-medium rounded-sm"
