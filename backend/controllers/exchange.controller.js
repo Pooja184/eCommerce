@@ -2,7 +2,7 @@ import exchangeModel from "../models/exchange.model.js";
 
 const exchangeItem = async (req, res) => {
   try {
-    const { orderId, productId, reason, requestedSize } = req.body;
+    const { orderId, productId, reason, requestedSize,status } = req.body;
     // Use userId from token (added by auth middleware)
     const userId = req.userId;
 
@@ -20,6 +20,7 @@ const exchangeItem = async (req, res) => {
       productId,
       reason,
       requestedSize,
+      status,
     });
     await newExchange.save();
     res.json({ success: true, message: "Exchange requested successfully." });
