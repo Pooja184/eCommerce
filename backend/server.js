@@ -18,16 +18,7 @@ connectCloudinary()                 // Configure Cloudinary for media handling
 
 //Middlewares
 app.use(express.json());            // Parse incoming JSON requests
-const allowedOrigins = [
-    'https://ecommerce-frontend-ashy-kappa.vercel.app',
-    'https://ecommerce-admin-wheat-six.vercel.app'
-];
-
-app.use(cors({
-  origin: allowedOrigins,
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  credentials: true,
-}));
+app.use(cors());
 
 
 //api endpoints
