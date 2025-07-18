@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
+import { ShopContext } from '../context/ShopContext'
 
 const Footer = () => {
+  const {navigate}=useContext(ShopContext);
   return (
     <div>
       <div className='flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 text-sm'>
@@ -11,11 +13,11 @@ const Footer = () => {
         </div>
         <div>
             <p className='text-xl font-medium mb-5 '>COMPANY</p>
-            <ul className='flex flex-col gap-1 text-gray-600'>
-                <li>Home</li>
-                <li>About us</li>
-                <li>Delivery</li>
-                <li>Privacy policy</li>
+            <ul className='flex flex-col gap-1 text-gray-600 '>
+                <li className='cursor-pointer' onClick={()=>{navigate('/');window.scrollTo(0, 0); }} >Home</li>
+                <li className='cursor-pointer' onClick={()=>{navigate('/about');window.scrollTo(0, 0); }}>About us</li>
+                <li className='cursor-pointer' onClick={()=>{navigate('/delivery');window.scrollTo(0, 0); }} >Delivery</li>
+                <li className='cursor-pointer' onClick={()=>{navigate('/privacy');window.scrollTo(0, 0); }}>Privacy policy</li>
             </ul>
         </div>
         <div>
