@@ -17,6 +17,8 @@ import Verify from './pages/Verify'
 import Exchange from './pages/Exchange'
 import Profile from './pages/Profile'
 import Return from './pages/Return'
+import Delivery from './pages/Delivery'
+import PrivacyPolicy from './pages/PrivacyPolicy'
 // import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
@@ -39,6 +41,8 @@ const App = () => {
         <Route path='/exchange' element={<Exchange/>}/>
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/return' element={<Return/>}/>
+        <Route path='/delivery' element={<Delivery/>}/>
+        <Route path='/privacy' element={<PrivacyPolicy/>}/>
 
       </Routes>
       <Footer/>
