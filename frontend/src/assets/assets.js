@@ -75,7 +75,6 @@ import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 import clothsyLogo from './clothsyLogo.png'
 import blank_profile from './blank_profile.webp'
-
 export const assets = {
     clothsyLogo,
     logo,
@@ -96,7 +95,8 @@ export const assets = {
     razorpay_logo,
     stripe_logo,
     cross_icon,
-    blank_profile
+    blank_profile,
+
 }
 
 export const products = [
