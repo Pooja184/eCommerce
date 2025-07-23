@@ -21,6 +21,7 @@ app.use(express.json());            // Parse incoming JSON requests
 app.use(cors());
 
 
+
 //api endpoints
 app.use('/api/user',userRouter);
 app.use('/api/product',productRouter);
