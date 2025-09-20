@@ -10,7 +10,7 @@ const addProduct= async (req,res)=>{
 
         // Getting the uploaded images from the request (if they exist)
         // Each image is stored as an array, so we take the first image using [0]
-        const image1 = req.files.image1 &&  req.files.image1[0]
+        const image1 = req.files.image1 &&  req.files.image1[0] 
         const image2 = req.files.image2 && req.files.image2[0]
         const image3 = req.files.image3 && req.files.image3[0]
         const image4 = req.files.image4 &&  req.files.image4[0]

@@ -167,7 +167,7 @@ const verifyRazorpay = async (req, res) => {
   try {
     const { razorpay_order_id } = req.body;
     const userId = req.userId;
-    const orderInfo = await razorpayInstance.orders.fetch(razorpay_order_id);
+    const orderInfo = await rezorpayInstance.orders.fetch(razorpay_order_id);
 
     // console.log(orderInfo);
     if (orderInfo.status === "paid") {
