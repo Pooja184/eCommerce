@@ -7,14 +7,25 @@ const LatestCollection = () => {
 
   const {products} =useContext(ShopContext); 
   const [latestProducts,setLatestProducts]=useState([]);
+   const [loading, setLoading] = useState(true);
   // console.log(products);
 
   useEffect(()=>{
-    setLatestProducts(products.slice(0,10));
+     if (products.length > 0) {
+      setLatestProducts(products.slice(0, 10));
+      setLoading(false); 
+    }
   },[products]);
 //here we add products later after getting data from backend
 
 
+ if (loading) {
+    return (
+      <div className="min-h-28 flex justify-center items-center text-xl">
+        Loading categories...
+      </div>
+    );
+  }
   return (
     <div className='my-10'>
       <div className='text-center py-8 text-3xl'>
