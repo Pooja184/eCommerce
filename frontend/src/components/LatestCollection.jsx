@@ -16,13 +16,12 @@ const LatestCollection = () => {
       setLoading(false); 
     }
   },[products]);
-//here we add products later after getting data from backend
 
 
  if (loading) {
     return (
       <div className="min-h-28 flex justify-center items-center text-xl">
-        Loading categories...
+        Loading products...
       </div>
     );
   }
