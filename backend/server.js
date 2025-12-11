@@ -10,14 +10,14 @@ import orderRouter from './routes/order.route.js';
 import subscribeUserRouter from './routes/subscribeUser.route.js';
 import exchangeRouter from './routes/exchange.route.js';
 
-//App config
-const app=express();                // Initialize the Express application
-const port = process.env.PORT || 4000;  
-connectDB();                        // Connect to MongoDB database
-connectCloudinary()                 // Configure Cloudinary for media handling
+
+const app=express();                
+const port = process.env.PORT || 8000;  
+connectDB();                        
+connectCloudinary()                 
 
 //Middlewares
-app.use(express.json());            // Parse incoming JSON requests
+app.use(express.json());            
 app.use(cors());
 
 
@@ -36,5 +36,5 @@ app.get('/',(req,res)=>{
     res.send("API Working")
 })
 
-//start the server
+
 app.listen(port,()=>console.log(`Server started on PORT ${port}`));
