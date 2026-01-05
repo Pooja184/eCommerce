@@ -6,14 +6,14 @@ Clothy is a modern and stylish e-commerce website built using the **MERN Stack**
 
 ---
 
-## 🚀 Explore Live Projects
+## 🚀 Explore Live Projects:
 
 - 🛍️ [Shop Frontend](https://e-commercefrontend-omega.vercel.app/)
 - 🧑‍💼 [Admin Dashboard](https://e-commerceadmin-ivory.vercel.app/)
 
 ---
 
-## 🔧 Tech Stack
+## 🔧 Tech Stack:
 
 - **Frontend**: React, Tailwind CSS
 - **Backend**: Node.js, Express.js
