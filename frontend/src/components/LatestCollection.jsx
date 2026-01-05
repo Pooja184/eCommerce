@@ -21,7 +21,7 @@ const LatestCollection = () => {
  if (loading) {
     return (
       <div className="min-h-28 flex justify-center items-center text-xl">
-        Loading products...
+        Fetching products. This may take a moment
       </div>
     );
   }

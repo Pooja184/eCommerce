@@ -22,14 +22,14 @@ const addProduct= async (req,res)=>{
         let imagesUrl= await Promise.all(
             images.map(async (item)=>{
                 let result  = await cloudinary.uploader.upload(item.path, {resource_type: 'image'});
-                return result.secure_url;  // Return only the secure URL
+                return result.secure_url; 
             })
         )
 
         // console.log(name,description,price,category,subCategory,sizes,bestSeller);
         // console.log(imagesUrl);
 
-        // Prepare the final product data object
+        //  final product data object
         const productData={
             name,
             description,
@@ -74,7 +74,7 @@ const listProduct= async (req,res)=>{
 //function for removing product
 const removeProduct= async (req,res)=>{
     try {
-         // Attempt to delete the product using the ID sent in the request body
+         // Attempt to delete the product using the id sent in the request body
         await productModel.findByIdAndDelete(req.body._id); // You can use req.body.id too, depending on your frontend
         // console.log(req.body);
         res.json({success:true,message:"Product Removed"});

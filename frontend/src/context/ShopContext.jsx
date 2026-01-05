@@ -36,7 +36,7 @@ const ShopContextProvider = (props) => {
     }
     setCartItems(cartData);
 
-    //add this code later
+    
     if (token) {
       try {
         await axios.post(backendUrl + '/api/cart/add',{itemId, size},{headers:{token}});
@@ -135,7 +135,7 @@ const getCartCount=()=>{
   // then set the token in state to keep the user logged in after page refresh
     if(!token && localStorage.getItem('token')){
       setToken(localStorage.getItem('token'));
-      getUserCart(localStorage.getItem('token')); //added later
+      getUserCart(localStorage.getItem('token')); 
     }
   },[]);
 

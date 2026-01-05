@@ -116,7 +116,8 @@ const adminLogin =async(req,res)=>{
 const getUserProfile=async(req,res)=>{
     try {
         // console.log(req);
-        const user=await userModel.findById(req.userId).select('-password');
+        const userId=req.userId;
+        const user=await userModel.findById(userId).select('-password');
         // console.log(user)
 
         if (!user) {
